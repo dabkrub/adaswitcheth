@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from 'react'
+import Contact from './components/contact'
+import Features from './components/features'
+import Header from './components/header'
+import Nav from './components/nav'
+import Roadmap from './components/roadmap'
+import Tokenomics from './components/tokenomic'
+import Marketing from './components/marketing'
+import Game from './components/games'
+import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const TopRef = useRef(null)
+  const FeaturesRef = useRef(null)
+  const TokenomicsRef = useRef(null)
+  const RoadmapRef = useRef(null)
+  const MarketingRef = useRef(null)
+  const [isGaming, setIsGaming] = useState(false)
+  const scrollToTop = () => {
+    TopRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToFeatures = () => {
+    FeaturesRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToTokenomics = () => {
+    TokenomicsRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToRoadmap = () => {
+    RoadmapRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToMarketing = () => {
+    MarketingRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+  if (isGaming) {
+    return <Game backToHome={() => setIsGaming(false)} />
+  } else
+    return (
+      <div ref={TopRef}>
+        <Nav
+          scrollToTop={scrollToTop}
+          scrollToFeatures={scrollToFeatures}
+          scrollToTokenomics={scrollToTokenomics}
+          scrollToRoadmap={scrollToRoadmap}
+          scrollToMarketing={scrollToMarketing}
+        />
+        <div>
+          <Header switchToGaming={()=>setIsGaming(true)}/>
+          <Features FeaturesRef={FeaturesRef} />
+          <Tokenomics TokenomicsRef={TokenomicsRef} />
+          <Roadmap RoadmapRef={RoadmapRef} />
+          <Marketing MarketingRef={MarketingRef} />
+          <Contact />
+        </div>
+      </div>
+    )
 }
 
-export default App;
+export default App

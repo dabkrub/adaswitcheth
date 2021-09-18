@@ -1,0 +1,1105 @@
+//config
+$blue1 : #62688F
+$blue2 : #8A92B2
+$darkblue : #333751
+$white : #E0FBFC
+$orange1 : #f
+$orange2 : #9E371F
+$jumbo : 6.25em //100px
+$header : 3.75em //60px
+$verybig : 3em //48px
+$big : 2.25em //36px
+$morethanmediumbutnotbig : 2.125em //34px
+$medium : 1.625em //26px
+$small : 1.5em //24px
+$verysmall : 1.3125em //21px
+$smallest : 1em //16px
+$mobilesmallest : 0.875em //16px
+
+
+@font-face 
+    font-family: gotham
+    src: url("./fonts/Gotham-Medium.otf")
+
+@font-face 
+    font-family: gothamBold
+    src: url("./fonts/Gotham-Ultra.otf")
+
+@font-face 
+    font-family: gothamLight
+    src: url("./fonts/Gotham-Light.otf")
+
+@font-face
+    font-family: homepageBold
+    src: url("./fonts/HomepageBaukasten-Bold.ttf")
+
+@font-face
+    font-family: homepageBook
+    src: url("./fonts/HomepageBaukasten-Book.ttf")
+
+@font-face
+    font-family: helvethaicaBlkExt
+    src: url("./fonts/DB HELVETHAICA X BLK EXT V3.2.TTF")
+
+@font-face
+    font-family: helvethaicaBlk
+    src: url("./fonts/DB HELVETHAICA X BLK V3.2.TTF")
+
+@font-face
+    font-family: helvethaicaX
+    src: url("./fonts/DB_HELVETHAICA_X.TTF")
+
+@font-face
+    font-family: helvethaicaBdCond
+    src: url("./fonts/DB Helvethaica X Bd Cond.ttf")
+
+@font-face
+    font-family: helvethaicaItalic
+    src: url("./fonts/DB HELVETHAICA X IT.TTF")
+
+html, body 
+    font-family: gotham
+    font-weight: normal
+    background-color: $white
+    overflow-x: hidden
+
+//navComponent    
+nav
+    width: 100%
+    background: rgb(0,127,230)
+    background: linear-gradient(99deg, $blue1 0%, $blue2 100%)
+    color: $white
+    position: fixed
+    z-index: 1000
+    
+    @media screen and (max-width: 1300px)
+        display: none
+    
+    .nav-flex
+        padding: 0 20px 0 20px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 65px
+
+    .nav-logo-flex 
+        display: flex
+        gap: 20px
+        align-items: start
+        margin-top: 10px
+        img
+            height: 101px
+            width: auto
+            transform: translateY(27px)
+        h1
+            font-family: HomepageBaukasten
+            font-size: 32px
+        span
+            font-size: 22px
+
+
+
+    li
+        display: inline
+        padding-left: 50px
+        cursor: pointer
+        position: relative
+
+    a
+        text-decoration: none
+        color: $white
+
+    img
+        width: 225px
+        height: 51px
+        cursor: pointer
+
+    .graph-button
+        background: $blue1;
+        background: linear-gradient(180deg, $blue2 0%, $blue1 100%);
+        border-radius: 24px
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 10px 20px
+        transition: 2s ease-in
+        &:hover
+            background: linear-gradient(180deg,#77B8ED  0%, $blue2 100%)
+            
+            
+
+    .pcs-button
+        color: $white 
+        background: $orange1;
+        background: linear-gradient(180deg, $orange1 0%, $orange2 100%);
+        border-radius: 24px
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 10px 20px
+        &:hover
+            background: linear-gradient(180deg,#F2C558  0%, $orange2 100%)
+
+    .text-menu 
+        &::after
+            position: absolute;
+            top: 22px;
+            width: 0%;
+            left: 70%;
+            height: 3px;
+            content: '';
+            background-color: $orange1;
+            display: block;
+            transition: left 0.15s ease-in, width 0.15s ease-in;
+            border-radius: 2px;
+            
+        &:hover::after
+            width: 65%;
+            left: 37%;
+
+//mobile-nav
+.mobile-nav
+    display: none
+    @media screen and(max-width: 1300px)
+        width: 100%
+        display: block
+        position: fixed
+        background: linear-gradient(99deg, $blue1 0%, $blue2 100%)
+        z-index: 1000
+    #hamburger 
+        margin-left: 80px
+
+    .mobile-nav-flex 
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 20px
+        height: 80px
+
+    .mobile-nav-logo-flex
+        display: flex
+        gap: 30px
+        align-items: flex-start
+        h1
+            font-family: homepageBold
+            font-size: 32px
+            color: $white
+            margin-top: 35px
+            @media screen and (max-width: 600px)
+                display: none
+        span
+            font-size: 22px
+            @media screen and (max-width: 600px)
+                display: none
+        img
+            transform: translateY(35px)
+
+    .mobile-nav-open 
+        position: fixed
+        height: 100vh
+        width: 300px
+        right: 0
+        top: 0
+        background-color: $orange1
+        transition: transform 0.4s ease-in-out
+
+        img
+            position: absolute
+            top: 80px
+            right: 40px
+
+        ul
+            position: relative
+            font-family: homepageBold
+            font-size: $small
+            color: #333751
+            list-style: none
+            top: 16%
+            margin-left: -18px
+
+        li
+            padding: 20px
+            width: 77%
+            border-bottom: solid 1px $white
+            cursor: pointer
+
+    .mobile-nav-close
+        transform: translateX(200%)
+            
+
+
+//header
+.header 
+    background-image: url("./images/logobg.png")
+    background-size: cover
+    background-position: 0% 42%
+    background-repeat: no-repeat
+    object-fit: wrap
+    background-color: $blue1
+    height: 1050px
+    max-height: 1014px
+    @media screen and (max-width: 1600px)
+        height: 780px
+    @media screen and (max-width: 1279px)
+        height: 1000px
+
+
+    @media screen and (max-width: 1279px)
+        height: auto
+        padding: 200px 0 10px 0
+        background-position: right
+        background-size: cover
+
+    @media screen and (max-width: 600px)
+        padding-top: 320px
+
+    .header-flex
+        display: flex
+        align-items: flex-end
+        padding-top: 160px
+        height: 760px
+        padding-left: 7%
+        justify-content: center
+        width: 85%
+        @media screen and (max-width: 1600px)
+            height: 550px
+        @media screen and (max-width: 1279px)
+            display: none
+
+        img
+            position: relative
+            width: 520px
+            @media screen and (max-width: 1600px)
+                width: 380px
+                transform: translateY(-25px)
+    
+    .header-flex2
+        display: flex
+        justify-content: flex-start
+        gap: 100px
+        align-items: flex-start
+
+        h2
+            background: $blue1;
+            background: linear-gradient(180deg, $blue2 0%, $blue1 100%);
+            border-radius: 24px
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            padding: 40px 10px 0 10px
+            height:  40px
+            transition: 2s ease-in
+            cursor: pointer
+            &:hover
+                background: linear-gradient(180deg,#77B8ED  0%, $blue2 100%)
+
+
+
+    h1
+        font-size: 120px
+        font-family: homepageBold
+        color: $white
+        line-height: 0px
+        margin-bottom: 75px
+            
+    h2
+        font-size: 40px
+        transform: translateY(5px)
+        font-family: homepageBold
+        color: $white
+        line-height: 0px
+        margin-bottom: -55px
+
+    .header-paragraph-flex
+        display: flex
+        align-items: center
+        justify-content: left
+        gap: 30px
+
+        h3
+            font-size: 135px
+            transform: translateY(5px)
+            font-family: homepageBold
+            color: $white
+            line-height: 0px
+            &::after
+                content: ""
+                position: absolute
+                display: block
+                height: 27px
+                width: 900px
+                background-color: $white
+                transform: translate(140px,-90px)
+                z-index: -1
+            @media screen and (max-width: 1600px)
+                &::after
+                    width: 800px
+
+
+        p
+            font-size: 1.125em
+            font-family: homepageBook
+            color: $white
+            width: 550px
+            margin-top: 40px
+            @media screen and (max-width: 1600)
+                font-size: $smallest
+            @media screen and (max-width: 920px)
+                width: 85%
+                margin: auto
+                text-align: left
+            @media screen and (max-width: 600px)
+                width: 100%
+                font-size: $mobilesmallest
+
+    .header-flex-mobile
+        display: none
+        @media screen and (max-width: 1279px)
+            margin-top: -60px
+            display: flex
+            flex-direction: column
+            align-items: center
+            img
+                width: 280px
+                height: auto
+        @media screen and (max-width: 600px)
+            margin-top: -190px
+            padding-bottom: 30px
+            img
+                width: 220px
+
+        .header-paragraph-flex-mobile
+            display: flex
+            gap: 30px
+            align-items: flex-start
+            margin-top: 0
+            @media screen and (max-width: 600px)
+                flex-direction: column
+                align-items: center
+                gap: 0px
+            h1
+                font-family: homepageBold
+                font-size: 90px
+                margin-bottom: 60px
+                color: $white
+            h2
+                font-family: homepageBook
+                font-size: 65px
+                margin-bottom: -75px
+                color: $white
+            h3
+                font-family: homepageBold
+                font-size: 100px
+                color: $white
+            p
+                font-family: homepageBook
+                font-size: 19px
+                color: $white
+                width: 375px
+                margin-top: 45px
+                @media screen and (max-width: 600px)
+                    width: 68%
+                    font-size: 14px
+                    margin-top: -90px
+                    line-height: 17px
+
+
+//features
+.features 
+    padding-top: 130px
+    padding-bottom: 60px
+    text-align: center
+    @media screen and (max-width: 600px)
+        padding-top: 90px
+
+    h1
+        font-size: $header
+        font-size: 90px
+        font-family: helvethaicaBlkExt
+        color: $blue1
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: 60px
+            margin-top: -18px
+
+    .features-line 
+        display: block
+        height: 3px 
+        width: 340px
+        background-color: $orange1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: -65px
+        @media screen and (max-width: 600px)
+            width: 80%
+            margin-top: -45px
+            width: 220px
+
+    .features-flex 
+        padding-top: 260px
+        display: flex
+        justify-content: center
+        gap: 56px
+        @media screen and (max-width: 1150px)
+            flex-direction: column
+            align-items: center
+            padding-top: 100px
+            margin-left: 150px
+        @media screen and (max-width: 600px)
+            padding-top: 40px
+
+    .features-box 
+        width: 240px
+        padding: 0px 42px 0 42px
+        height: 488px
+        background: linear-gradient(180deg,#ffffff 0%,$white 100%)
+        border-radius: 51px
+        @media screen and (max-width: 1150px)
+            box-shadow: none
+            background: linear-gradient(90deg,#ffffff 0%,$white 100%)
+            height: auto
+            width: 40%
+            padding: 0px 42px 0 80px
+            text-align: left
+        @media screen and (max-width: 600px)
+            width: 80%
+            padding-left: 30px
+            padding-top: 35px
+            border-radius: 21px
+
+        h1
+            font-size: 60px
+            color: $blue1
+            font-family: helvethaicaBlk
+            line-height: 48px
+            @media screen and (max-width: 600px)
+                font-size: $small
+
+        p
+            font-size: 28px
+            color: $blue2
+            line-height: 26px
+            font-family: helvethaicaX
+            margin-top: -6px
+            @media screen and (max-width: 600px)
+                font-size: 18px
+                margin-top: 0
+
+        img
+            display: absolute
+            transform: translateY(-230px)
+            margin-bottom: -190px
+            @media screen and (max-width: 1150px)
+                display: none
+            
+            
+        .mobile
+            display: none
+            display: absolute
+            transform: translateY(-60px)
+            margin-top: 60px
+            margin-left: -230px
+            width: 200px
+            @media screen and (max-width: 1150px)
+                display: block
+            @media screen and (max-width: 600px)
+                width: 126px
+                margin-left: -140px
+                transform: translateY(-100px)
+
+
+
+//tokenomics
+.tokenomics
+    background: url('./images/tokenomicsbg.png')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 40%
+    height: 1100px
+    padding-top: 9vh
+    padding-bottom: 0vh
+    text-align: center
+    @media screen and (max-width: 1250px)
+        background-size: cover
+        background-position: 50%
+        height: auto
+        padding-bottom: 18vh
+        padding-top: 12vh
+    
+    h1
+        font-size: $header
+        font-size: 90px
+        font-family: helvethaicaBlkExt
+        color: $blue1
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: 60px
+            margin-top: -18px
+
+    .tokenomics-line 
+        display: block
+        height: 3px 
+        width: 450px
+        background-color: $orange1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: -65px
+        @media screen and (max-width: 600px)
+            width: 80%
+            margin-top: -45px
+            width: 280px
+
+    .tokenomics-box
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+
+    .tokenomics-flex-mobile
+        display: none
+        @media screen and (max-width: 1250px)
+            display: block
+            transform: scale(1.1) translateY(40px)
+            
+        @media screen and (max-width: 750px)
+            display: block
+            transform: scale(1)
+
+    .tokenomics-flex
+        display: flex
+        justify-content: space-around
+        padding-top: 2vh
+        margin-left: -180px
+        @media screen and (max-width: 1250px)
+            display: none
+
+        h2
+            font-size: $big
+            font-weight: normal
+            line-height: 36px
+            @media screen and (max-width: 600px)
+                font-size: $small
+                line-height: 15px
+
+        span
+            font-size: 48px
+            font-family: gothamBold
+            @media screen and (max-width: 600px)
+                font-size: 32px
+
+        #chart
+            transform: translateX(220px)
+            @media screen and (max-width:1450px) 
+                width: 800px
+
+            @media screen and (max-width: 1150px)
+                width: 600px
+                margin-left: -300px
+
+            @media screen and (max-width: 750px)
+                display: none
+        
+        #chart-mobile
+            display: none
+            @media screen and (max-width: 750px)
+                display: block
+                width: 300px
+                margin: auto
+            @media screen and (max-width: 500px)
+                width: 250px
+
+        #chart2
+            transform: translateY(30px)
+            @media screen and (max-width:1450px) 
+                width: 475px
+            @media screen and (max-width: 1150px)
+                width: 440px
+            @media screen and (max-width: 1150px)
+                width: 400px
+                margin: auto
+            @media screen and (max-width: 500px)
+                width: 280px
+
+//roadmap
+.roadmap
+    padding-top: 13vh
+    padding-bottom: 15vh
+    text-align: center
+
+    @media screen and (max-width: 1279px)
+        padding-bottom: 3vh
+
+    @media screen and (max-width: 600px)
+        padding-top: 10vh
+        padding-bottom: 0vh
+    
+    h2
+        font-size: $big
+        color: 
+        font-family: homepageBook
+        font-family: gothamLight
+        @media screen and (max-width: 600px)
+            font-size: $small
+
+    h1
+        font-size: $header
+        font-size: 90px
+        font-family: helvethaicaBlkExt
+        color: $blue1
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: 60px
+            margin-top: -18px
+
+    .roadmap-line 
+        display: block
+        height: 3px 
+        width: 330px
+        background-color: $orange1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: -74px
+        @media screen and (max-width: 600px)
+            width: 80%
+            margin-top: -49px
+            width: 220px
+
+    .roadmap-flex 
+        padding-top: 130px
+        display: flex
+        justify-content: center
+        gap: 10px
+        @media screen and (max-width: 1279px) 
+            flex-direction: column
+            align-items: center
+            gap: 0px
+            padding-top: 0px
+            &::after
+                display: none
+
+    
+
+    .roadmap-box 
+        text-align: left
+        width: 350px
+        padding: 0px 1px 0 62px
+        height: 600px
+        background: linear-gradient(180deg,#ffffff 0%,$white 100%)
+        border-radius: 51px
+
+        @media screen and (max-width: 1279px) 
+            height: 640px
+            padding-bottom: 0px
+            padding-left: 50px
+            &::before
+                transform: translate(-230px,35px)
+
+        @media screen and (max-width: 600px)
+            height: 450px
+            width: 280px
+            transform: translateX(15px)
+            &::before
+                height: 48px
+                width: 48px
+                transform: translate(-190px,27px)
+
+        @media screen and (max-width: 400px)
+            width: 240px
+
+        h1
+            font-size: $verybig
+            font-family: gothamBold
+            color: $blue1
+            margin-bottom: 30px
+
+            @media screen and (max-width: 600px)
+                font-size: $big
+                margin-bottom: 15px
+                &::before
+                    height: 450px
+                    width: 10px
+                    transform: translate(-60px,10px)
+                
+        .roadmap-no-line
+            &::before
+                display: none
+
+
+        span
+            color: $orange1
+            font-family: gotham
+
+
+
+    .roadmap-detail
+        margin-left: 30px
+        @media screen and (max-width: 1279px) 
+            margin-left: 15px
+            
+        h2
+            color: $blue1      
+            font-size: $morethanmediumbutnotbig
+            font-family: helvethaicaBdCond
+            font-size: 60px
+            line-height: 48px
+            height: 135px
+            @media screen and (max-width: 600px)
+                font-size: $verysmall
+                height: 77px
+                font-size: 36px
+                line-height: 28px
+
+        h3
+            color: $blue2
+            font-size: $small
+            font-family: helvethaicaItalic
+            font-size: 36px
+            line-height: 0px
+            @media screen and (max-width: 600px)
+                font-size: 24px
+                line-height: 4px
+        ul
+            margin-top: 40px
+            list-style: none
+            font-family: helvethaicaX
+            font-size: 28px
+            line-height: 26px
+            color: $blue2
+            padding: 0
+            @media screen and (max-width: 600px)
+                margin-top: 0px
+                font-size: 20px
+                line-height: 18px
+
+        li
+            margin-bottom: 20px
+            @media screen and (max-width: 1279px)
+                margin-bottom: 14px
+            @media screen and (max-width: 600px)
+                margin-bottom: 10px
+
+
+        &::before
+                content: ""
+                display: block
+                height: 225px
+                width: 10px 
+                background-color: $orange1
+                position: absolute;
+                margin-left: -30px
+                margin-top: 0px
+
+        @media screen and (max-width: 600px) 
+            &::before
+                height: 138px
+                margin-top: 2px
+
+    .roadmap-arrow-mobile 
+        display: none
+        @media screen and (max-width: 1279px)
+            display: block
+            transform: translate(-175px,00px)
+            height: 50px
+
+    .roadmap-arrow
+        transform: translate(-50px,-145px) scaleX(1.1)
+        height: 50px
+        @media screen and (max-width: 1550px)
+            transform: translate(-50px,-145px) scaleX(1)
+        @media screen and (max-width: 1279px)
+            display: none
+
+        h1
+            font-family: helvethaicaX 
+            font-size: 72px
+            color: $white
+            transform: translate(120px,-90px)
+
+//marketing
+.marketing
+    padding-top: 13vh
+    padding-bottom: 15vh
+    text-align: center
+
+    @media screen and (max-width: 1279px)
+        padding-top: 0vh
+        padding-bottom: 5vh
+
+    @media screen and (max-width: 600px)
+        padding-top: 8vh
+        padding-bottom: 5vh
+    
+    h2
+        font-size: $big
+        color: 
+        font-family: homepageBook
+        font-family: gothamLight
+        @media screen and (max-width: 600px)
+            font-size: $small
+
+    h1
+        font-size: $header
+        font-size: 90px
+        font-family: helvethaicaBlkExt
+        color: $blue1
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: 60px
+            margin-top: -18px
+
+    .marketing-line 
+        display: block
+        height: 3px 
+        width: 385px
+        background-color: $orange1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: -74px
+        @media screen and (max-width: 600px)
+            width: 80%
+            margin-top: -49px
+            width: 220px
+
+    .marketing-flex 
+        padding-top: 130px
+        display: flex
+        justify-content: center
+        gap: 10px
+        @media screen and (max-width: 1279px) 
+            flex-direction: column
+            align-items: center
+            gap: 0px
+            padding-top: 0px
+            &::after
+                display: none
+    
+
+    .marketing-box 
+        position: relative
+        text-align: left
+        width: 320px
+        padding: 0px 30px 0 62px
+        height: 600px
+        background: linear-gradient(180deg,#ffffff 0%,$white 100%)
+        border-radius: 51px
+
+        @media screen and (max-width: 1279px) 
+            height: 500px
+            padding-bottom: 0px
+            padding-left: 50px
+            &::before
+                transform: translate(-230px,35px)
+
+        @media screen and (max-width: 600px)
+            height: 400px
+            width: 280px
+            transform: translateX(15px)
+            &::before
+                height: 48px
+                width: 48px
+                transform: translate(-190px,27px)
+
+        @media screen and (max-width: 400px)
+            width: 240px
+
+        h2
+            font-size: 60px
+            font-family: helvethaicaBdCond
+            color: $white
+            background-color: $blue1
+            margin-bottom: 30px
+            height: 50px
+            border-radius: 50px 50px 0 0
+            padding: 50px 0 0px 0
+            width: 413px
+            margin-left: -62px
+            margin-top: -50px
+            text-align: center
+            @media screen and (max-width: 600px)
+                width: 373px
+                font-size: 36px
+            @media screen and (max-width: 400px)
+                width: 333px
+
+            span
+                font-size: 48px
+
+                @media screen and (max-width: 600px)
+                    font-size: 24px
+
+
+
+            @media screen and (max-width: 600px)
+                font-size: $big
+                margin-bottom: 15px
+                &::before
+                    height: 450px
+                    width: 10px
+                    transform: translate(-60px,10px)
+                
+        .marketing-no-line
+            &::before
+                display: none
+
+
+        
+
+
+
+    .marketing-detail
+        margin-left: 30px
+        @media screen and (max-width: 1279px) 
+            margin-left: 15px
+            
+        h2
+            color: $blue1      
+            font-size: $morethanmediumbutnotbig
+            font-family: helvethaicaBdCond
+            font-size: 60px
+            line-height: 48px
+            height: 135px
+            @media screen and (max-width: 600px)
+                font-size: $verysmall
+                height: 77px
+                font-size: 36px
+                line-height: 28px
+
+        h3
+            color: $blue2
+            font-size: $small
+            font-family: helvethaicaItalic
+            font-size: 36px
+            line-height: 0px
+            @media screen and (max-width: 600px)
+                font-size: 24px
+                line-height: 4px
+        ul
+            margin-top: 40px
+            list-style: none
+            font-family: helvethaicaX
+            font-size: 28px
+            line-height: 26px
+            color: $blue2
+            padding: 0
+            @media screen and (max-width: 600px)
+                margin-top: 25px
+                font-size: 20px
+                line-height: 18px
+
+        li
+            margin-bottom: 25px
+            @media screen and (max-width: 1279px)
+                margin-bottom: 23px
+            @media screen and (max-width: 600px)
+                margin-bottom: 20px
+
+
+        &::before
+                content: ""
+                display: block
+                height: 255px
+                width: 10px 
+                background-color: $orange1
+                position: absolute;
+                margin-left: -30px
+                margin-top: 0px
+
+        @media screen and (max-width: 600px) 
+            &::before
+                height: 138px
+                margin-top: 2px
+
+    .marketing-arrow-mobile 
+        display: none
+        @media screen and (max-width: 1279px)
+            display: block
+            transform: translate(-175px,00px)
+            height: 50px
+
+    .marketing-arrow
+        transform: translate(-50px,-145px) scaleX(1.1)
+        height: 50px
+        @media screen and (max-width: 1550px)
+            transform: translate(-50px,-145px) scaleX(1)
+        @media screen and (max-width: 1279px)
+            display: none
+
+        h1
+            font-family: helvethaicaX 
+            font-size: 72px
+            color: $white
+            transform: translate(120px,-90px)    
+    
+//contact
+.contact
+    background-color: #333751
+    padding: 40px
+    @media screen and (max-width: 1079px)
+        padding: 30px 80px
+    @media screen and (max-width: 600px)
+        padding: 30px 30px
+    .contact-flex 
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 100px
+        @media screen and (max-width: 1079px)
+            flex-direction: column
+            align-items: flex-start
+            gap: 18px
+            height: auto
+        h1
+            font-family: gothamBold
+            font-size: $verybig
+            color: $white
+            line-height: 20px
+            @media screen and (max-width: 600px)
+                font-size: $medium
+                line-height: 10px
+        a
+            font-size: $medium
+            color: $white
+            text-decoration: none
+            cursor: pointer
+            &:hover
+                color: $blue2
+            @media screen and (max-width: 600px)
+                font-size: $smallest
+                line-height: 0px
+
+        img
+            transform: translateY(7px)
+            margin-right: 15px
+            width: 33px
+
+.game
+    text-align: center
+    font-family: helvethaicaBdCond
+    color: $blue1
+    font-size: 40px
+
+    #arrow
+        position: absolute
+        left: 30px
+        top: 30px
+        width: 32px
+        cursor: pointer
+
+    button
+        font-size: 20px
+        color: $white
+        background-color: $blue1
+        border-radius: 10px
+        padding: 7px 5px 
+        margin-left: 20px
+    form
+        font-size: 32px
+
+    .question-box
+        display: flex
+        align-items: center    
+
+    input
+        margin: 0 20px 0 3px
+
+    .game-click
+        img
+            &:active
+                transform: scale(1.2)
